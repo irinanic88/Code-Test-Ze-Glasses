@@ -10,25 +10,41 @@
   }
 
   &__title {
-    font-size: .9rem;
+    font-size: .8rem;
     font-weight: 400;
     text-transform: uppercase;
+
+    @include responsive(tablet) {
+      font-size: 1rem;
+    }
   }
 
   &__form {
     @include flex();
-    gap: 30px;
+    gap: 15px;
+
+    @include responsive(tablet) {
+      gap: 30px;
+    }
   }
 
   &__formHeader {
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 700;
     text-transform: uppercase;
+
+    @include responsive(tablet) {
+      font-size: 1rem;
+    }
   }
 
   &__formGroup {
     @include flex();
-    gap: 30px;
+    gap: 10px;
+
+    @include responsive(tablet) {
+      gap: 30px;
+    }
   }
 
   &__radio {
@@ -57,8 +73,12 @@
   }
 
   &__label {
-    font-size: .8rem;
+    font-size: .6rem;
     text-transform: capitalize;
+
+    @include responsive(tablet) {
+      font-size: .8rem;
+    }
   }
 
   &__input:checked ~ &__visibleRadio &__checked {
