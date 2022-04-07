@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from '../Header/Header';
 import styles from './App.module.scss';
 
 const App = () => {
     return (
-        <div>This is App</div>
+        <div className={styles.app}>
+            <Header />
+        </div>
     )
 }
 

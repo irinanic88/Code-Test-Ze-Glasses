@@ -1,0 +1,55 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/variables';
+
+.header {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__burger {
+    @include icons($w: 16px);
+  }
+
+  &__logo {
+    @include icons($w: 115px);
+    height: auto;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @include responsive(tablet) {
+      gap: 15px;
+    }
+  }
+
+  &__navText {
+    display: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      border-bottom: 2px solid $black;
+    }
+
+    @include responsive(tablet) {
+      display: block;
+    }
+  }
+
+  &__search {
+    @include icons($w: 15px);
+
+    @include responsive(tablet) {
+      display: none;
+    }
+  }
+
+  &__cart {
+    @include icons($w: 15px);
+  }
+}
