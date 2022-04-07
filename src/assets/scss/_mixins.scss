@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin responsive ($breakpoint) {
 
   @if $breakpoint == laptop {
@@ -17,4 +19,9 @@
       @content;
     }
   }
+}
+
+@mixin icons($w) {
+  width: $w;
+  cursor: pointer;
 }

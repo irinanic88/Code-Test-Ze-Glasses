@@ -1,11 +1,13 @@
-@import './assets/scss/_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import './assets/scss/variables';
 
 html, body {
   margin: 0;
   padding: 0;
-  color: $black;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: $black;
 }
