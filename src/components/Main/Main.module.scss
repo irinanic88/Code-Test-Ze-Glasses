@@ -2,6 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .main {
+  margin-top: 15px;
 
   &__header {
     @include flex();
@@ -9,7 +10,7 @@
   }
 
   &__title {
-    font-size: 12px;
+    font-size: .9rem;
     font-weight: 400;
     text-transform: uppercase;
   }
@@ -20,7 +21,7 @@
   }
 
   &__formHeader {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
   }
@@ -56,7 +57,7 @@
   }
 
   &__label {
-    font-size: 12px;
+    font-size: .8rem;
     text-transform: capitalize;
   }
 
