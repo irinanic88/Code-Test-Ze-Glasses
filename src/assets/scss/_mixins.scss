@@ -1,6 +1,6 @@
 @import './variables';
 
-@mixin responsive ($breakpoint) {
+@mixin responsive($breakpoint) {
 
   @if $breakpoint == laptop {
     @media screen and (min-width: 992px) {
@@ -19,6 +19,12 @@
       @content;
     }
   }
+}
+
+@mixin flex() {
+  display: flex;
+  align-items: center;
+
 }
 
 @mixin icons($w) {

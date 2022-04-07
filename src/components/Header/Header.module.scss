@@ -3,8 +3,7 @@
 
 .header {
   margin-top: 10px;
-  display: flex;
-  align-items: center;
+  @include flex();
   justify-content: space-between;
 
   &__burger {
@@ -17,8 +16,7 @@
   }
 
   &__nav {
-    display: flex;
-    align-items: center;
+    @include flex();
     gap: 30px;
 
     @include responsive(tablet) {

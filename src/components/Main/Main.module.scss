@@ -1,8 +1,10 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
 .main {
 
   &__header {
-    display: flex;
-    align-items: center;
+    @include flex();
     justify-content: space-between;
   }
 
@@ -13,9 +15,7 @@
   }
 
   &__form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex();
     gap: 30px;
   }
 
@@ -24,4 +24,50 @@
     font-weight: 700;
     text-transform: uppercase;
   }
+
+  &__formGroup {
+    @include flex();
+    gap: 30px;
+  }
+
+  &__radio {
+    position: relative;
+  }
+
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    outline: none;
+  }
+
+  &__visibleRadio {
+    @include flex();
+    gap: 5px;
+  }
+
+  &__control {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $black;
+    border-radius: 1px;
+  }
+
+  &__label {
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+
+  &__input:checked ~ &__visibleRadio &__checked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: $black;
+  }
+
 }
