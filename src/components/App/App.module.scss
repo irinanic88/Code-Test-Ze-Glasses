@@ -1,0 +1,11 @@
+@import '../../assets/scss/mixins';
+
+.app {
+  margin: 0 auto;
+  padding: 0 30px;
+  max-width: 1400px;
+
+  @include responsive(tablet) {
+    padding: 0 23px;
+  }
+}

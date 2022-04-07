@@ -1,6 +1,9 @@
+@import './assets/scss/_variables.scss';
+
 html, body {
   margin: 0;
   padding: 0;
+  color: $black;
 }
 
 *, *::before, *::after {
