@@ -117,7 +117,7 @@ export const products = {
         description: "Brioni vintage inspired black sunglasses",
         color: ["black"],
         price: 320,
-        imageURL: "https://i.ibb.co/PCBKdmK/alex-iby-Xh-MSz5-I1kn8-unsplash.jpg",
+        imageURL: "https://i.ibb.co/7kFsCbW/alex-iby-Xh-MSz5-I1kn8-unsplash.jpg",
     },
 
 }

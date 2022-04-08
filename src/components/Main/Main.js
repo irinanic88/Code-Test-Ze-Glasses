@@ -1,9 +1,12 @@
 import React from 'react';
 import { products } from '../../utils/data';
 import Card from '../Card/Card';
+import cn from 'classnames';
 import styles from './Main.module.scss';
 
 const Main = () => {
+    const isMain = true;
+
     const formElement = (title) => {
         return (
             <label className={styles.main__radio} key={title}>
@@ -21,6 +24,7 @@ const Main = () => {
     }
 
     const colorsToFilter = ['black', 'silver', 'other'];
+    const defaultModels = ['60bri', '48bri', '59bri', '53bri', '55bri', '56bri', '58bri', '54bri'];
 
     return (
         <main className={styles.main}>
@@ -35,8 +39,20 @@ const Main = () => {
                     </div>
                 </form>
             </div>
-            <div className={styles.main__body}>
-                <Card card={products["60bri"]} />
+            <div className={cn(styles.main__body, styles.main__default)}>
+                {
+                    defaultModels.map(model => {
+                        return (
+                            <div className={styles[`main__${products[model].id}`]}>
+                                <Card
+                                    key={products[model].id}
+                                    card={products[model]}
+                                />
+                            </div>
+                        )
+
+                    })
+                }
             </div>
         </main>
     )
