@@ -2,12 +2,9 @@
 
 .card {
   width: 100%;
-  font-size: .8rem;
+  font-size: .6rem;
+  line-height: 1rem;
   text-decoration: none;
-
-  @include responsive(tablet) {
-    font-size: 1rem;
-  }
 
   &__img {
     width: 100%;
@@ -15,7 +12,7 @@
 
   &__textBlock {
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   &__model {
