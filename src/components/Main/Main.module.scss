@@ -19,6 +19,8 @@
     }
   }
 
+  //form
+
   &__form {
     @include flex();
     gap: 15px;
@@ -89,6 +91,13 @@
     width: 10px;
     height: 10px;
     background-color: $black;
+  }
+
+  //body
+
+  &__body {
+    width: 350px;
+    height: auto;
   }
 
 }
