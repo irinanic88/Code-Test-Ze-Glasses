@@ -1,4 +1,6 @@
 import React from 'react';
+import { products } from '../../utils/data';
+import Card from '../Card/Card';
 import styles from './Main.module.scss';
 
 const Main = () => {
@@ -34,7 +36,7 @@ const Main = () => {
                 </form>
             </div>
             <div className={styles.main__body}>
-
+                <Card card={products["60bri"]} />
             </div>
         </main>
     )
