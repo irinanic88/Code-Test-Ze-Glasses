@@ -1,0 +1,94 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.main {
+  margin-top: 15px;
+
+  &__header {
+    @include flex();
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: .8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @include responsive(tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  &__form {
+    @include flex();
+    gap: 15px;
+
+    @include responsive(tablet) {
+      gap: 30px;
+    }
+  }
+
+  &__formHeader {
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @include responsive(tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  &__formGroup {
+    @include flex();
+    gap: 10px;
+
+    @include responsive(tablet) {
+      gap: 30px;
+    }
+  }
+
+  &__radio {
+    position: relative;
+  }
+
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    outline: none;
+  }
+
+  &__visibleRadio {
+    @include flex();
+    gap: 5px;
+  }
+
+  &__control {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $black;
+    border-radius: 1px;
+  }
+
+  &__label {
+    font-size: .6rem;
+    text-transform: capitalize;
+
+    @include responsive(tablet) {
+      font-size: .8rem;
+    }
+  }
+
+  &__input:checked ~ &__visibleRadio &__checked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: $black;
+  }
+
+}
