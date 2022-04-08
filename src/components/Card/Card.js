@@ -10,13 +10,13 @@ const Card = ({card}) => {
     const brand = convertToUpperCase(manufacturer);
 
     return (
-        <a href="#" text={`${brand} ${model}`}>
-            <span>
-                <img alt={`${brand} ${model}`} src={imageURL}/>
-                <p>{brand}</p>
-                <p>{description}</p>
-                <p>Model ref: {model}</p>
-                <p>{`${price.toFixed(2)} ${currency}`}</p>
+        <a href="#" text={`${brand} ${model}`} className={styles.card}>
+            <img alt={`${brand} ${model}`} src={imageURL} className={styles.card__img}/>
+            <span className={styles.card__textBlock}>
+                <p className={styles.card__brand}>{brand}</p>
+                <p className={styles.card__description}>{description}</p>
+                <p className={styles.card__model}>Model ref: {model}</p>
+                <p className={styles.card__price}>{`${price.toFixed(2)} ${currency}`}</p>
             </span>
         </a>
     )
