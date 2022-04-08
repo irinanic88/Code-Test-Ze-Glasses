@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { products } from '../../utils/data';
+import { colorsToFilter, defaultModels } from './utils/variables';
+import { filteredModels } from './utils/utils';
 import Card from '../Card/Card';
 import cn from 'classnames';
 import styles from './Main.module.scss';
 
 const Main = () => {
-    const [filter, setFilter] = useState(null);
+    const [filter, setFilter] = useState('all');
+
+    console.log(filteredModels(filter));
 
     const handleColorChange = (event) => {
         setFilter(event.target.value);
@@ -33,9 +37,6 @@ const Main = () => {
         )
     }
 
-    const colorsToFilter = ['black', 'silver', 'other'];
-    const defaultModels = ['60bri', '48bri', '59bri', '53bri', '55bri', '56bri', '58bri', '54bri'];
-
     return (
         <main className={styles.main}>
             <div className={styles.main__header}>
@@ -61,7 +62,6 @@ const Main = () => {
                                 />
                             </div>
                         )
-
                     })
                 }
             </div>
