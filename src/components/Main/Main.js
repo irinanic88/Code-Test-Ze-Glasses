@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { products } from '../../utils/data';
 import Card from '../Card/Card';
 import cn from 'classnames';
 import styles from './Main.module.scss';
 
 const Main = () => {
-    const isMain = true;
+    const [filter, setFilter] = useState(null);
+
+    const handleColorChange = (event) => {
+        setFilter(event.target.value);
+    }
 
     const formElement = (title) => {
         return (
             <label className={styles.main__radio} key={title}>
-                <input type="radio" name="color" className={styles.main__input} />
+                <input type="radio"
+                       name="color"
+                       value={title}
+                       checked={filter === title}
+                       onChange={handleColorChange}
+                       className={styles.main__input}
+                />
                 <div className={styles.main__visibleRadio}>
                     <div className={styles.main__control}>
                         <div className={styles.main__checked}/>
@@ -43,9 +53,10 @@ const Main = () => {
                 {
                     defaultModels.map(model => {
                         return (
-                            <div className={styles[`main__${products[model].id}`]}>
+                            <div key={products[model].id}
+                                 className={styles[`main__${products[model].id}`]}
+                            >
                                 <Card
-                                    key={products[model].id}
                                     card={products[model]}
                                 />
                             </div>
