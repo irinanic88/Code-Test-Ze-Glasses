@@ -26,9 +26,7 @@ const Main = () => {
                        className={styles.main__input}
                 />
                 <div className={styles.main__visibleRadio}>
-                    <div className={styles.main__control}>
-                        <div className={styles.main__checked}/>
-                    </div>
+                    <div className={styles.main__control}/>
                     <div className={styles.main__label}>
                         {title}
                     </div>
@@ -55,10 +53,11 @@ const Main = () => {
                 [styles.main__filtered]: filter !== 'all',
             })}>
                 {
-                    modelsToRender.map(model => {
+                    modelsToRender.map((model, index) => {
+                        console.log();
                         return (
                             <div key={products[model].id}
-                                 className={cn(styles[`main__${products[model].id}`], {
+                                 className={cn(styles[`main__0${index + 1}`], {
                                      [styles.main__filteredCard]: filter !== 'all',
                                  })}
                             >
