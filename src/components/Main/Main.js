@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { products } from '../../utils/data';
+import { colorsToFilter, defaultModels } from './utils/variables';
+import { filteredModels } from './utils/utils';
 import Card from '../Card/Card';
 import cn from 'classnames';
 import styles from './Main.module.scss';
 
 const Main = () => {
-    const isMain = true;
+    const [filter, setFilter] = useState('all');
+
+    const modelsToRender = filteredModels(filter).length === 0 ? defaultModels : filteredModels(filter);
+
+    const handleColorChange = (event) => {
+        setFilter(event.target.value);
+    }
 
     const formElement = (title) => {
         return (
             <label className={styles.main__radio} key={title}>
-                <input type="radio" name="color" className={styles.main__input} />
+                <input type="radio"
+                       name="color"
+                       value={title}
+                       checked={filter === title}
+                       onChange={handleColorChange}
+                       className={styles.main__input}
+                />
                 <div className={styles.main__visibleRadio}>
                     <div className={styles.main__control}>
                         <div className={styles.main__checked}/>
@@ -22,9 +36,6 @@ const Main = () => {
             </label>
         )
     }
-
-    const colorsToFilter = ['black', 'silver', 'other'];
-    const defaultModels = ['60bri', '48bri', '59bri', '53bri', '55bri', '56bri', '58bri', '54bri'];
 
     return (
         <main className={styles.main}>
@@ -39,18 +50,23 @@ const Main = () => {
                     </div>
                 </form>
             </div>
-            <div className={cn(styles.main__body, styles.main__default)}>
+            <div className={cn(styles.main__body, {
+                [styles.main__default]: filter === 'all',
+                [styles.main__filtered]: filter !== 'all',
+            })}>
                 {
-                    defaultModels.map(model => {
+                    modelsToRender.map(model => {
                         return (
-                            <div className={styles[`main__${products[model].id}`]}>
+                            <div key={products[model].id}
+                                 className={cn(styles[`main__${products[model].id}`], {
+                                     [styles.main__filteredCard]: filter !== 'all',
+                                 })}
+                            >
                                 <Card
-                                    key={products[model].id}
                                     card={products[model]}
                                 />
                             </div>
                         )
-
                     })
                 }
             </div>
