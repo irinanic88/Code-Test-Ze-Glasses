@@ -102,15 +102,14 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, auto);
-    grid-column-gap: 20px;
-    grid-row-gap: 70px;
+    grid-column-gap: 15px;
+    grid-row-gap: 50px;
 
     @include responsive(tablet) {
-      display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(5, auto);
-      grid-column-gap: 15px;
-      grid-row-gap: 50px;
+      grid-column-gap: 20px;
+      grid-row-gap: 70px;
     }
   }
 
@@ -157,10 +156,11 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(auto-fill, auto);
     grid-column-gap: 15px;
-    grid-row-gap: 50px;
+    grid-row-gap: 30px;
 
     @include responsive(tablet) {
       grid-template-columns: repeat(4, 1fr);
+      grid-row-gap: 50px;
     }
   }
 
