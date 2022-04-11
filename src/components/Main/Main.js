@@ -9,7 +9,7 @@ import styles from './Main.module.scss';
 const Main = () => {
     const [filter, setFilter] = useState('all');
 
-    console.log(filteredModels(filter));
+    const modelsToRender = filteredModels(filter).length === 0 ? defaultModels : filteredModels(filter);
 
     const handleColorChange = (event) => {
         setFilter(event.target.value);
@@ -50,12 +50,17 @@ const Main = () => {
                     </div>
                 </form>
             </div>
-            <div className={cn(styles.main__body, styles.main__default)}>
+            <div className={cn(styles.main__body, {
+                [styles.main__default]: filter === 'all',
+                [styles.main__filtered]: filter !== 'all',
+            })}>
                 {
-                    defaultModels.map(model => {
+                    modelsToRender.map(model => {
                         return (
                             <div key={products[model].id}
-                                 className={styles[`main__${products[model].id}`]}
+                                 className={cn(styles[`main__${products[model].id}`], {
+                                     [styles.main__filteredCard]: filter !== 'all',
+                                 })}
                             >
                                 <Card
                                     card={products[model]}

@@ -93,7 +93,7 @@ export const products = {
         description: "Brioni vintage inspired black transparent sunglasses",
         color: ["black"],
         price: 360,
-        imageURL: "https://i.ibb.co/bLkM1pm/mubariz-mehdizadeh-Py8-F6-h-Rn5o-unsplash.jpg",
+        imageURL: "https://i.ibb.co/WGbddfG/mubariz-mehdizadeh-Py8-F6-h-Rn5o-unsplash.jpg",
     },
     '58bri': {
         id: '58bri',
