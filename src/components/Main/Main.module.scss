@@ -17,7 +17,7 @@
     text-transform: uppercase;
 
     @include responsive(tablet) {
-      font-size: 1rem;
+      font-size: .9rem;
     }
   }
 
@@ -38,7 +38,7 @@
     text-transform: uppercase;
 
     @include responsive(tablet) {
-      font-size: 1rem;
+      font-size: .9rem;
     }
   }
 
@@ -85,13 +85,7 @@
     }
   }
 
-  &__input:checked ~ &__visibleRadio &__checked {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
+  &__input:checked ~ &__visibleRadio &__control {
     background-color: $black;
   }
 
@@ -173,6 +167,5 @@
   &__filteredCard {
     grid-area: initial;
   }
-
 
 }

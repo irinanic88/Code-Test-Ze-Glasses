@@ -26,9 +26,7 @@ const Main = () => {
                        className={styles.main__input}
                 />
                 <div className={styles.main__visibleRadio}>
-                    <div className={styles.main__control}>
-                        <div className={styles.main__checked}/>
-                    </div>
+                    <div className={styles.main__control}/>
                     <div className={styles.main__label}>
                         {title}
                     </div>
