@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
 import { products } from '../../utils/data';
 import { colorsToFilter, defaultModels } from './utils/variables';
-import { filteredModels } from './utils/utils';
+import { filteredModels, pushOrPopItem } from './utils/utils';
 import Card from '../Card/Card';
 import cn from 'classnames';
 import styles from './Main.module.scss';
 
 const Main = () => {
-    const [filter, setFilter] = useState('all');
+    const [checkedState, setCheckedState] = useState([]);
 
-    const modelsToRender = filteredModels(filter).length === 0 ? defaultModels : filteredModels(filter);
+    const modelsToRender = checkedState.length === 0 ? defaultModels : filteredModels(checkedState);
 
-    const handleColorChange = (event) => {
-        setFilter(event.target.value);
+    const handleColorFilter = (event) => {
+        const checkedValue = event.target.value;
+        setCheckedState(pushOrPopItem(checkedState, checkedValue));
     }
 
     const formElement = (title) => {
         return (
-            <label className={styles.main__radio} key={title}>
-                <input type="radio"
+            <label className={styles.main__checkbox} key={title}>
+                <input type="checkbox"
                        name="color"
                        value={title}
-                       checked={filter === title}
-                       onChange={handleColorChange}
+                       checked={checkedState[title]}
+                       onChange={handleColorFilter}
                        className={styles.main__input}
                 />
-                <div className={styles.main__visibleRadio}>
+                <div className={styles.main__visibleCheckbox}>
                     <div className={styles.main__control}/>
                     <div className={styles.main__label}>
                         {title}
@@ -49,16 +50,16 @@ const Main = () => {
                 </form>
             </div>
             <div className={cn(styles.main__body, {
-                [styles.main__default]: filter === 'all',
-                [styles.main__filtered]: filter !== 'all',
+                [styles.main__default]: checkedState.length === 0,
+                [styles.main__filtered]: checkedState.length !== 0,
             })}>
+
                 {
                     modelsToRender.map((model, index) => {
-                        console.log();
                         return (
                             <div key={products[model].id}
                                  className={cn(styles[`main__0${index + 1}`], {
-                                     [styles.main__filteredCard]: filter !== 'all',
+                                     [styles.main__filteredCard]: checkedState.length !== 0,
                                  })}
                             >
                                 <Card
